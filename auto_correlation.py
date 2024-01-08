@@ -15,21 +15,13 @@ from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import spearmanr,pearsonr
 data = pd.read_csv('C:\Study\Code\数据集\PP_GAS\gt_2011.csv',header=0)
 name = data.columns
-# 5号退料20230809
-##5号投料20230810
-# pv = data.filter(like='PV')
-# name = pv.columns
-# pv_data = pv.values
-data = data.values
-# time = data[:,0]
-# data = data[:,1:]
 
-# for i in range(pv_data.shape[1]):
-#     plt.subplot(5,5,i+1)
-#     plt.plot(pv_data[:,i],label=name[i])
-#     plt.legend()
-# plt.tight_layout()
-# plt.show()
+
+
+data = data.values
+
+
+
 print(1)
 # 计算自相关系数
 fig1, ax1 = plt.subplots(3,4,layout='constrained')
@@ -42,9 +34,6 @@ for i in range(data.shape[1]):
     ax.bar(x=np.arange(acf_result.shape[0]) + 1, height=acf_result, label=name[i])
     ax.bar(x=np.arange(dff_result.shape[0]) + 1, height=dff_result, label="Diff".format(i + 1))
     ax.legend()
-
-
-
 
 scaler = MinMaxScaler()
 pv_data = scaler.fit_transform(data)
