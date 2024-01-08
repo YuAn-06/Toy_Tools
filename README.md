@@ -3,6 +3,7 @@
 
 * **`FFT.py`:** **Toy code of Fast Fourier Transform for time series data and corresponding visualizations. The shape of data is **\[N,D\]**, N, D represents the number of data and dimension.**
 
-
+* **`auto_correlation.py`:** **Toy code to test autocorrelation, stationary and variable correlation for time series data and corresponding visualizations. The shape of data is **\[N,D\]**, N, D represents the number of data and dimension.**
+  
 ## Requirement:
 * `pytorch >= 1.8`
