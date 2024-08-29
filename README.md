@@ -3,11 +3,11 @@
 
 * **`FFT.py`:** **Toy code of Fast Fourier Transform for time series data and corresponding visualizations. The shape of data is **\[N,D\]**, N, D represents the number of data and dimension.**
 
-Original Data:
+**Original Data**:
 ![data](https://github.com/YuAn-06/Toy_ToolsCode/blob/main/figs/ppgas2011.png)\
-# The result of ppgas2011 data after fast fourier transform:
+**The result of ppgas2011 data after fast fourier transform**:
 ![fre&amp](https://github.com/YuAn-06/Toy_ToolsCode/blob/main/figs/FFT_ppgas.png)
-# The result of noise reduction of the part with frequency greater than 0.1:
+**The result of noise reduction of the part with frequency greater than 0.1**:
 ![filtered](https://github.com/YuAn-06/Toy_ToolsCode/blob/main/figs/ppgas2011_filtered.png)
 
 * **`auto_correlation.py`:** **Toy code to test autocorrelation, stationary and variable correlation for time series data and corresponding visualizations. The shape of data is **\[N,D\]**, N, D represents the number of data and dimension.**
