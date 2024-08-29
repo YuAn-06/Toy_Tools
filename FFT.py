@@ -60,5 +60,38 @@ if data.shape[1] % 2 != 0:
     plt.delaxes(axs[-1, -1])
 
 
+def low_pass_filter(sequence, cutoff_freq_ratio=0.1):
+
+    fft_seq = torch.fft.fft(sequence, dim=0)
+    freqs = torch.fft.fftfreq(sequence.shape[0]).reshape(-1,1)
+    sequence_fft_filtered = fft_seq * (torch.abs(freqs) < cutoff_freq_ratio)
+    filtered_sequence = torch.fft.ifft(sequence_fft_filtered, dim=0).real
+    return filtered_sequence
+
+N, D = data.shape
+
+filtered_data = low_pass_filter(data,cutoff_freq_ratio=0.03)
+
+plt.figure(figsize=(12,8))
+plt.suptitle('Original Data')
+for i in range(D):
+    plt.subplot(3,int(D//3 +1), i+1)
+    plt.plot(data[:, i].numpy(),label=name[i])
+    plt.grid()
+    plt.legend()
+plt.tight_layout()
+
+
+plt.figure(figsize=(12,8))
+plt.suptitle('Filtered Data')
+for i in range(D):
+    plt.subplot(3,D//3 +1, i+1)
+    plt.plot(filtered_data[:, i].numpy(),label=name[i])
+    plt.grid()
+    plt.legend()
+plt.tight_layout()
+
+plt.show()
+
 plt.show()
 print(1)
